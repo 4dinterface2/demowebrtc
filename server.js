@@ -26,7 +26,8 @@ var https = require('https');
 
 var argv = minimist(process.argv.slice(2), {
     default: {
-        as_uri: 'https://localhost:8443/',
+        //as_uri: 'https://localhost:8443/',
+        as_uri: 'https://stream1.whenspeak.ru:8444',
         //ws_uri: 'ws://localhost:8888/kurento'
         //ws_uri: 'ws://37.228.89.170:9999/kurento'
         ws_uri: 'wss://37.228.89.170:8888/kurento'
@@ -35,8 +36,10 @@ var argv = minimist(process.argv.slice(2), {
 
 var options =
 {
-  key:  fs.readFileSync('keys/server.key'),
-  cert: fs.readFileSync('keys/server.crt')
+  //key:  fs.readFileSync('keys/server.key'),
+  //cert: fs.readFileSync('keys/server.crt')
+  key:  fs.readFileSync('/etc/nginx/ssl/server.key'),
+  cert: fs.readFileSync('/etc/nginx/ssl/server.crt')
 };
 
 var app = express();
